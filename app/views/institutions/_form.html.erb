@@ -1,0 +1,32 @@
+<%= form_with(model: institution, local: true) do |form| %>
+  <% if institution.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(institution.errors.count, "error") %> prohibited this institution from being saved:</h2>
+
+      <ul>
+      <% institution.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :rut %>
+    <%= form.number_field :rut, id: :institution_rut %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dv %>
+    <%= form.text_field :dv, id: :institution_dv %>
+  </div>
+
+  <div class="field">
+    <%= form.label :business_name %>
+    <%= form.text_field :business_name, id: :institution_business_name %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
