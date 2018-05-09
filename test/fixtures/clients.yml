@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rut: 1
+  dv: MyString
+  name: MyString
+  last_name: MyString
+  institution: one
+
+two:
+  rut: 1
+  dv: MyString
+  name: MyString
+  last_name: MyString
+  institution: two
