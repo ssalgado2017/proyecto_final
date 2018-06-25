@@ -1,3 +1,4 @@
+<div class= "well bs-component">
 <%= form_with(model: client, local: true) do |form| %>
   <% if client.errors.any? %>
     <div id="error_explanation">
@@ -11,32 +12,44 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :rut %>
-    <%= form.number_field :rut, id: :client_rut %>
+  <div class="form-group">
+    <%= form.label :rut , class: "col-lg-2 control-label"%>
+    <div class="col-lg-10">
+      <%= form.number_field :rut, id: :client_rut , class: "form-control"%>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :dv %>
-    <%= form.text_field :dv, id: :client_dv %>
+  <div class="form-group">
+    <%= form.label :dv , class: "col-lg-2 control-label"%>
+    <div class="col-lg-10">
+      <%= form.text_field :dv, id: :client_dv , class: "form-control"%>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :client_name %>
+  <div class="form-group">
+    <%= form.label :name , class: "col-lg-2 control-label"%>
+    <div class="col-lg-10">
+      <%= form.text_field :name, id: :client_name , class: "form-control"%>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name, id: :client_last_name %>
+  <div class="form-group">
+    <%= form.label :last_name , class: "col-lg-2 control-label"%>
+    <div class="col-lg-10">
+      <%= form.text_field :last_name, id: :client_last_name , class: "form-control"%>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :institution_id %>
-    <%= form.text_field :institution_id, id: :client_institution_id %>
+  <div class="form-group">
+    <%= form.label :institution_id , class: "col-lg-2 control-label"%>
+    <div class="col-lg-10">
+      <%= form.select :institution_id, options_for_select(@institutions.map {|institution| [institution.business_name, institution.id]}, form.object.institution_id), {}, {class: "form-control"} %>
+    </div>
+
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-success"%>
   </div>
 <% end %>
+</div>

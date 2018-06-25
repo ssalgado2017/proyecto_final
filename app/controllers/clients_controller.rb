@@ -1,10 +1,11 @@
 class ClientsController < ApplicationController
   before_action :set_client, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /clients
   # GET /clients.json
   def index
-    @clients = Client.all
+    @clients = current_user.clients
   end
 
   # GET /clients/1
@@ -15,10 +16,12 @@ class ClientsController < ApplicationController
   # GET /clients/new
   def new
     @client = Client.new
+    @institutions = Institution.all
   end
 
   # GET /clients/1/edit
   def edit
+    @institutions = Institution.all
   end
 
   # POST /clients
@@ -28,6 +31,10 @@ class ClientsController < ApplicationController
 
     respond_to do |format|
       if @client.save
+        @user_client = UserClient.new
+        @user_client.user = current_user
+        @user_client.client = @client
+        @user_client.save
         format.html { redirect_to @client, notice: 'Client was successfully created.' }
         format.json { render :show, status: :created, location: @client }
       else

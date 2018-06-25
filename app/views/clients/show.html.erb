@@ -1,29 +1,26 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Rut:</strong>
-  <%= @client.rut %>
-</p>
+<div class="table-responsive">
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Rut</th>
+      <th>Dv</th>
+      <th>Nombre </th>
+      <th>Apellido</th>
+      <th>Institución</th>
+    </tr>
+  </thead>
 
-<p>
-  <strong>Dv:</strong>
-  <%= @client.dv %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @client.name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @client.last_name %>
-</p>
-
-<p>
-  <strong>Institution:</strong>
-  <%= @client.institution %>
-</p>
-
+  <tbody>
+    <tr>
+      <td><%= @client.rut %></td>
+      <td><%= @client.dv %></td>
+      <td><%= @client.name %></td>
+      <td><%= @client.last_name %></td>
+      <td><%= @client.institution_id %></td>
+    </tr>
+  </tbody>
+</table>
+</div>
 <%= link_to 'Edit', edit_client_path(@client) %> |
 <%= link_to 'Back', clients_path %>
