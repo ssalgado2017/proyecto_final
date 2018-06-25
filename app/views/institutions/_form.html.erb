@@ -1,3 +1,4 @@
+<div class= "well bs-component">
 <%= form_with(model: institution, local: true) do |form| %>
   <% if institution.errors.any? %>
     <div id="error_explanation">
@@ -11,22 +12,30 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :rut %>
-    <%= form.number_field :rut, id: :institution_rut %>
+  <div class="form-group">
+    <%= form.label :rut , class: "col-lg-2 control-label"%>
+    <div class="col-lg-10">
+      <%= form.number_field :rut, id: :institution_rut , class: "form-control"%>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :dv %>
-    <%= form.text_field :dv, id: :institution_dv %>
+  <div class="form-group">
+    <%= form.label :dv , class: "col-lg-2 control-label"%>
+    <div class="col-lg-10">
+      <%= form.text_field :dv, id: :institution_dv , class: "form-control"%>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :business_name %>
-    <%= form.text_field :business_name, id: :institution_business_name %>
+  <div class="form-group">
+    <%= form.label :business_name , class: "col-lg-2 control-label"%>
+    <div class="col-lg-10">
+      <%= form.text_field :business_name, id: :institution_business_name , class: "form-control"%>
+    </div>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-success"%>
   </div>
 <% end %>
+</div>
+

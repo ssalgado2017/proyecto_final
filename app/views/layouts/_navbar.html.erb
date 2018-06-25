@@ -1,0 +1,38 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Cotiza</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><%= link_to "Clientes", clients_path %></li>
+      <li><%= link_to "Instituciones", institutions_path %></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+    	<li>
+    	<% if current_user %>
+      		<a href="javascript:void(0)">Bienvenid@ <%= current_user.nombre %></a>
+      	<% else %>
+      		<%= link_to  new_user_registration_path do %>
+      			<span class="glyphicon glyphicon-user"></span>
+      			Sign Up
+      		<% end %>
+      	<% end %>
+      	</li>
+      	<li>
+      	<% if current_user %>
+    		<%= link_to destroy_user_session_path, method: :delete do %>
+    			<span class="glyphicon glyphicon-log-out"></span>
+    			Logout
+    		<% end %>
+		<% else %>
+    		<%= link_to  new_user_session_path do %>
+    			<span class="glyphicon glyphicon-log-in"></span>
+    			Login
+    		<% end %>
+
+		<% end %>
+      </li>
+    </ul>
+  </div>
+</nav>
