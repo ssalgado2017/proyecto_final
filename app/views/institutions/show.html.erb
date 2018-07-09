@@ -1,19 +1,21 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Rut:</strong>
-  <%= @institution.rut %>
-</p>
-
-<p>
-  <strong>Dv:</strong>
-  <%= @institution.dv %>
-</p>
-
-<p>
-  <strong>Business name:</strong>
-  <%= @institution.business_name %>
-</p>
+<div class="table-responsive">
+<table class="table table-striped">
+  <thead>
+  	<tr>
+  		<th>Rut</th>
+  		<th>Dv</th>
+  		<th>Institución</th>
+  	</tr>
+  </thead>
+  <tbody>
+  	<tr>
+  		<td><%= @institution.rut %></td>
+  		<td><%= @institution.dv %></td>
+  		<td><%= @institution.business_name %></td>
+  	</tr>
+  </tbody>
+ </table>
+ </div>
 
 <%= link_to 'Edit', edit_institution_path(@institution) %> |
 <%= link_to 'Back', institutions_path %>
