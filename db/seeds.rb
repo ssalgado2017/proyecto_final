@@ -25,3 +25,4 @@ end
   UserClient.create!(client: a, user: User.order("RANDOM()").first)
 end
 
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
