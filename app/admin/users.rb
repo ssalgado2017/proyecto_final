@@ -46,5 +46,9 @@ controller do
 	end
 end
 
+filter :email
+filter :nombre
+filter :apellido_paterno
+filter :created_at
 
 end
