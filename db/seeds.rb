@@ -10,6 +10,7 @@
 UserClient.delete_all
 Client.delete_all
 Institution.delete_all
+AdminUser.delete_all
 
 10.times do
  Institution.create!(rut: Faker::Number.number(8), dv: Faker::Number.digit, business_name: Faker::Name.first_name)
@@ -25,4 +26,4 @@ end
   UserClient.create!(client: a, user: User.order("RANDOM()").first)
 end
 
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
