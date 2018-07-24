@@ -1,0 +1,57 @@
+<div class= "well bs-component">
+<%= form_with(model: quotation, local: true) do |form| %>
+  <% if quotation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(quotation.errors.count, "error") %> prohibited this quotation from being saved:</h2>
+
+      <ul>
+      <% quotation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="form-group">
+    <%= form.label :code_quotation, class: "col-lg-2 control-label"%>
+    <div class="col-lg-10">
+      <%= form.text_field :code_quotation, id: :quotation_code_quotation %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :title, class: "col-lg-2 control-label"%>
+    <div class="col-lg-10">
+      <%= form.text_field :title, id: :quotation_title %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :description, class: "col-lg-2 control-label"%>
+    <div class="col-lg-10">
+      <%= form.text_area :description, id: :quotation_description %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :state_id, class: "col-lg-2 control-label"%>
+    <div class="col-lg-10">
+      <%= form.text_field :state_id, id: :quotation_state_id %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :client_id , class: "col-lg-2 control-label"%>
+    <div class="col-lg-10">
+      <%= form.select :client_id, options_for_select(@clients.map {|client| [client.name, client.id]}, form.object.client_id), {}, {class: "form-control"} %>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: "btn btn-success"%>
+  </div>
+
+
+<% end %>
+</div>

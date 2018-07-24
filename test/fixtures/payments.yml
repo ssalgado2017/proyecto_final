@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  OC: MyString
+  coin: MyString
+  rode: 1.5
+  iva: false
+  quotation: one
+
+two:
+  OC: MyString
+  coin: MyString
+  rode: 1.5
+  iva: false
+  quotation: two

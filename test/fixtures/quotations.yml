@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  code_quotation: MyString
+  title: MyString
+  description: MyText
+  state: one
+  client: one
+
+two:
+  code_quotation: MyString
+  title: MyString
+  description: MyText
+  state: two
+  client: two

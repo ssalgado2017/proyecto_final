@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: 1
+  description: MyString
+  percentage: 1
+  rode: 1.5
+  date_payment: 2018-07-24 13:59:54
+  date_payment_real: 2018-07-24 13:59:54
+  hes: MyString
+  payments: one
+
+two:
+  number: 1
+  description: MyString
+  percentage: 1
+  rode: 1.5
+  date_payment: 2018-07-24 13:59:54
+  date_payment_real: 2018-07-24 13:59:54
+  hes: MyString
+  payments: two
