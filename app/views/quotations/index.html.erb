@@ -17,7 +17,7 @@
   <tbody>
     <% @quotations.each do |quotation| %>
       <tr>
-        <td><%= quotation.code_quotation %></td>
+        <td><%= quotation.code_quotation.to_s %></td>
         <td><%= quotation.title %></td>
         <td><%= quotation.description %></td>
         <td><%= quotation.state %></td>
