@@ -20,9 +20,9 @@
         <td><%= client.name %></td>
         <td><%= client.last_name %></td>
         <td><%= client.institution_id %></td>
-        <td><button type="button" class="btn btn-success"><%= link_to 'Show', client %></button>
-        <button type="button" class="btn btn-warning"><%= link_to 'Edit', edit_client_path(client) %></button>
-        <button type="button" class="btn btn-danger"><%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Está seguro(a) que quiere eliminarlo?' } %></button></td>
+        <td><button type="button" class="btn btn-success"><%= link_to 'Mostrar', client %></button>
+        <button type="button" class="btn btn-warning"><%= link_to 'Editar', edit_client_path(client) %></button>
+        <button type="button" class="btn btn-danger"><%= link_to 'Eliminar', client, method: :delete, data: { confirm: 'Está seguro(a) que quiere eliminarlo?' } %></button></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New Client', new_client_path %>
+<%= link_to 'Nuevo Cliente', new_client_path %>

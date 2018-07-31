@@ -1,29 +1,23 @@
-<p id="notice"><%= notice %></p>
+<div class="table-responsive">
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Descripción</th>
+      <th>Estado</th>
+      <th>Cliente</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @quotation.code_quotation %></td>
+      <td><%= @quotation.title %></td>
+      <td><%= @quotation.state_id %></td>
+      <td><%= @quotation.client_id %></td>
+    </tr>
+  </tbody>
+ </table>
+ </div>
 
-<p>
-  <strong>Code quotation:</strong>
-  <%= @quotation.code_quotation %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @quotation.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @quotation.description %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @quotation.state %>
-</p>
-
-<p>
-  <strong>Client:</strong>
-  <%= @quotation.client %>
-</p>
-
-<%= link_to 'Edit', edit_quotation_path(@quotation) %> |
-<%= link_to 'Back', quotations_path %>
+<%= link_to 'Editar', edit_quotation_path(@quotation) %> |
+<%= link_to 'Volver', quotations_path %>

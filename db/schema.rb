@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180724175954) do
+ActiveRecord::Schema.define(version: 20180730213442) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -111,11 +111,13 @@ ActiveRecord::Schema.define(version: 20180724175954) do
     t.string "title"
     t.text "description"
     t.bigint "state_id"
-    t.bigint "client_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "client_id"
     t.index ["client_id"], name: "index_quotations_on_client_id"
     t.index ["state_id"], name: "index_quotations_on_state_id"
+    t.index ["user_id"], name: "index_quotations_on_user_id"
   end
 
   create_table "quote_details", force: :cascade do |t|
@@ -172,6 +174,7 @@ ActiveRecord::Schema.define(version: 20180724175954) do
   add_foreign_key "payments_details", "payments", column: "payments_id"
   add_foreign_key "quotations", "clients"
   add_foreign_key "quotations", "states"
+  add_foreign_key "quotations", "users"
   add_foreign_key "quote_details", "quotations"
   add_foreign_key "user_clients", "clients"
   add_foreign_key "user_clients", "users"

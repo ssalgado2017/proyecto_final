@@ -1,10 +1,13 @@
 class QuotationsController < InheritedResources::Base
   before_action :set_quotation, only: [:show, :edit, :update, :destroy]
+  #before_action :set_client, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
   def index
     @quotations = Quotation.all
-  #  @clients = current_user.clients
+    @states = State.all
+    @clients = current_user.clients
+    @user = current_user
   end
 
   def show
@@ -14,19 +17,22 @@ class QuotationsController < InheritedResources::Base
     @quotation = Quotation.new
     @states = State.all
     @clients = current_user.clients
-    @client_quotations = @quotation.client_quotations.build
+    @user = current_user
   end
 
    def edit
     @states = State.all
-    @quote_products = @quotation.client_quotations
+    @clients = current_user.clients
+    @user = current_user
   end
 
 
 
  def create
- 	@clients = Client.all
-    @quotation = Quotation.new(quotation_params)	
+  @states = State.all
+  @quotation = Quotation.new(quotation_params)	
+  @quotation.user = current_user
+#  @quotation.client = current_user.clients
 
     respond_to do |format|
       if @quotation.save
@@ -39,9 +45,12 @@ class QuotationsController < InheritedResources::Base
     end
   end
 
+
   # PATCH/PUT /quotes/1
   # PATCH/PUT /quotes/1.json
   def update
+    @states = State.all  
+    @quotation.user = current_user
     respond_to do |format|
       if @quotation.update(quotation_params)
         format.html { redirect_to @quotation, notice: 'Quote was successfully updated.' }
@@ -56,9 +65,9 @@ class QuotationsController < InheritedResources::Base
   # DELETE /quotes/1
   # DELETE /quotes/1.json
   def destroy
-    @quote.destroy
+    @quotation.destroy
     respond_to do |format|
-      format.html { redirect_to quotes_url, notice: 'Quote was successfully destroyed.' }
+      format.html { redirect_to quotations_url, notice: 'Quote was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -70,23 +79,13 @@ class QuotationsController < InheritedResources::Base
       @quotation = Quotation.find(params[:id])
     end
 
-    def set_client
-      @client = current_user.clients
-    end
-
-#    def quotation_params
-#      params.require(:quotation).permit(:code_quotation, :title, :description, :state_id, :client_id)
-#    end
+   def set_client
+      @clients = current_user.clients
+   end
 
 
     def quotation_params
-      params.require(:quotation).permit(:code_quotation, :title, :description, :state_id, :client_id, client_productions_attributes:
-        [
-          :client_id,
-          :quotation_id,
-          :_destroy
-        ]
-      )
+      params.require(:quotation).permit(:code_quotation, :title, :description, :state_id, :user_id, :client_id)
     end
 end
 
