@@ -4,7 +4,8 @@ class QuotationsController < InheritedResources::Base
   before_action :authenticate_user!
 
   def index
-    @quotations = Quotation.all
+    #@quotations = Quotation.all
+    @quotations = current_user.quotations
     @states = State.all
     @clients = current_user.clients
     @user = current_user
@@ -76,7 +77,7 @@ class QuotationsController < InheritedResources::Base
 
   private
     def set_quotation
-      @quotation = Quotation.find(params[:id])
+      @quotation = Quotation.find(params[:id])  
     end
 
    def set_client
