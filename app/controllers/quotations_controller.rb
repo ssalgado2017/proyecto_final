@@ -1,10 +1,8 @@
 class QuotationsController < InheritedResources::Base
   before_action :set_quotation, only: [:show, :edit, :update, :destroy]
-  #before_action :set_client, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
   def index
-    #@quotations = Quotation.all
     @quotations = current_user.quotations
     @states = State.all
     @clients = current_user.clients
@@ -79,14 +77,9 @@ class QuotationsController < InheritedResources::Base
     def set_quotation
       @quotation = Quotation.find(params[:id])  
     end
-
-   def set_client
-      @clients = current_user.clients
-   end
-
-
+    
     def quotation_params
-      params.require(:quotation).permit(:code_quotation, :title, :description, :state_id, :user_id, :client_id)
+      params.require(:quotation).permit(:code_quotation, :title, :description, :state_id, :user_id, :client_id, :document)
     end
 end
 

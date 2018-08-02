@@ -1,0 +1,17 @@
+01000:        |   |   |  With LRU Buffer Replacement Strategy for data pages.
+
+01000:        |   |
+
+01000:        |   |  TO TABLE
+
+01000:        |   |  ctaster.dbo.enr_cli_alcancia
+
+01000:        |   |  Using I/O Size 8 Kbytes for data pages.
+
+01000: 
+
+01000: 
+
+01000: Total estimated I/O cost for statement 2 (at line 5): 81.
+
+01000: 

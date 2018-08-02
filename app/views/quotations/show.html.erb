@@ -6,6 +6,7 @@
       <th>Descripción</th>
       <th>Estado</th>
       <th>Cliente</th>
+      <th>Documento</th>
     </tr>
   </thead>
   <tbody>
@@ -14,6 +15,8 @@
       <td><%= @quotation.title %></td>
       <td><%= @quotation.state_id %></td>
       <td><%= @quotation.client_id %></td>
+      <td><A HREF="<%= @quotation.document%>"><IMG NAME="mostrar" SRC="assets/documents%>"</A>Mostrar</td>
+
     </tr>
   </tbody>
  </table>

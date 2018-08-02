@@ -14,37 +14,44 @@
 
 
   <div class="form-group">
-    <%= form.label :code_quotation, class: "col-lg-2 control-label"%>
+    <%= form.label :Código, class: "col-lg-2 control-label"%>
     <div class="col-lg-10">
       <%= form.text_field :code_quotation, id: :quotation_code_quotation %>
     </div>
   </div>
 
   <div class="form-group">
-    <%= form.label :title, class: "col-lg-2 control-label"%>
+    <%= form.label :Título, class: "col-lg-2 control-label"%>
     <div class="col-lg-10">
       <%= form.text_field :title, id: :quotation_title %>
     </div>
   </div>
 
   <div class="form-group">
-    <%= form.label :description, class: "col-lg-2 control-label"%>
+    <%= form.label :Descripción, class: "col-lg-2 control-label"%>
     <div class="col-lg-10">
       <%= form.text_area :description, id: :quotation_description %>
     </div>
   </div>
 
   <div class="form-group">
-    <%= form.label :state_id , class: "col-lg-2 control-label"%>
+    <%= form.label :Estado , class: "col-lg-2 control-label"%>
     <div class="col-lg-10">
       <%= form.select :state_id, options_for_select(@states.map {|state| [state.name, state.id]}, form.object.state_id), {}, {class: "form-control"} %>
     </div>
   </div>
 
   <div class="form-group">
-    <%= form.label :client_id , class: "col-lg-2 control-label"%>
+    <%= form.label :Cliente , class: "col-lg-2 control-label"%>
     <div class="col-lg-10">
       <%= form.select :client_id, options_for_select(@clients.map {|client| [client.name, client.id]}, form.object.client_id), {}, {class: "form-control"} %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :Documento, class: "col-lg-2 control-label"%>
+    <div class="col-lg-10">
+      <%= form.file_field :document, id: :document, class: "btn btn-info btn-sm"%>
     </div>
   </div>
 

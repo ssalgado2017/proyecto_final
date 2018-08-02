@@ -1,3 +1,4 @@
+<div class= "well bs-component">
 <%= form_with(model: payment, local: true) do |form| %>
   <% if payment.errors.any? %>
     <div id="error_explanation">
@@ -11,32 +12,48 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :OC %>
-    <%= form.text_field :OC, id: :payment_OC %>
+  <div class="form-group">
+    <%= form.label :OC, class: "col-lg-2 control-label"%>
+    <div class="col-lg-10">
+      <%= form.text_field :OC, id: :payment_OC %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :coin %>
-    <%= form.text_field :coin, id: :payment_coin %>
+
+  <div class="form-group">
+    <%= form.label :Moneda, class: "col-lg-2 control-label" %>
+    <div class="col-lg-10">
+      <%= form.text_field :coin, id: :payment_coin %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :rode %>
-    <%= form.text_field :rode, id: :payment_rode %>
+  <div class="form-group">
+    <%= form.label :Monto, class: "col-lg-2 control-label" %>
+    <div class="col-lg-10">
+      <%= form.text_field :rode, id: :payment_rode %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :iva %>
-    <%= form.check_box :iva, id: :payment_iva %>
+  <div class="form-group">
+    <%= form.label :Iva, class: "col-lg-2 control-label" %>
+    <div class="col-lg-10">
+      <%= form.check_box :iva, id: :payment_iva %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :quotation_id %>
-    <%= form.text_field :quotation_id, id: :payment_quotation_id %>
+
+  <div class="form-group">
+    <%= form.label :Cotización , class: "col-lg-2 control-label"%>
+    <div class="col-lg-10">
+      <%= form.select :quotation_id, options_for_select(@quotations.map {|quotation| [quotation.description, quotation.id]}, form.object.quotation_id), {}, {class: "form-control"} %>
+    </div>
   </div>
+
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-success"%>
   </div>
+
+
 <% end %>
+</div>
