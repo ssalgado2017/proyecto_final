@@ -4,7 +4,6 @@
   <thead>
     <tr>
       <th>Rut</th>
-      <th>Dv</th>
       <th>Nombre </th>
       <th>Apellido</th>
       <th>Institución</th>
@@ -15,11 +14,10 @@
   <tbody>
     <% @clients.each do |client| %>
       <tr>
-        <td><%= client.rut %></td>
-        <td><%= client.dv %></td>
+        <td><%= number_to_currency(client.rut, {:precision => 0, :unit => "",:delimiter => "."}) %>-<%= client.dv %></td>
         <td><%= client.name %></td>
         <td><%= client.last_name %></td>
-        <td><%= client.institution_id %></td>
+        <td><%= client.institution.business_name %></td>
         <td><button type="button" class="btn btn-success"><%= link_to 'Mostrar', client %></button>
         <button type="button" class="btn btn-warning"><%= link_to 'Editar', edit_client_path(client) %></button>
         <button type="button" class="btn btn-danger"><%= link_to 'Eliminar', client, method: :delete, data: { confirm: 'Está seguro(a) que quiere eliminarlo?' } %></button></td>

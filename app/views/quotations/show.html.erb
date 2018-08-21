@@ -13,9 +13,9 @@
     <tr>
       <td><%= @quotation.code_quotation %></td>
       <td><%= @quotation.title %></td>
-      <td><%= @quotation.state_id %></td>
-      <td><%= @quotation.client_id %></td>
-      <td><A HREF="<%= @quotation.document%>"><IMG NAME="mostrar" SRC="assets/documents%>"</A>Mostrar</td>
+      <td><%= @quotation.state.name %></td>
+      <td><%= @quotation.client.fullname %></td>
+      <td><A HREF="<%= @quotation.document%>"><IMG NAME="mostrar" SRC="assets/images/documents.png%>"</A>Mostrar</td>
 
     </tr>
   </tbody>

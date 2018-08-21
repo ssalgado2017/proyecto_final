@@ -4,7 +4,6 @@
   <thead>
     <tr>
       <th>Rut</th>
-      <th>Dv</th>
       <th>Nombre Institución</th>
       <th></th>
     </tr>
@@ -13,8 +12,7 @@
   <tbody>
     <% @institutions.each do |institution| %>
       <tr>
-        <td><%= institution.rut %></td>
-        <td><%= institution.dv %></td>
+        <td><%= number_to_currency(institution.rut, {:precision => 0, :unit => "",:delimiter => "."}) %>-<%= institution.dv %></td>
         <td><%= institution.business_name %></td>
         <td><button type="button" class="btn btn-success"><%= link_to 'Mostrar', institution %></button>
         <button type="button" class="btn btn-warning"><%= link_to 'Editar', edit_institution_path(institution) %></button>

@@ -4,7 +4,6 @@
   <thead>
     <tr>
       <th>Rut</th>
-      <th>Dv</th>
       <th>Nombre </th>
       <th>Apellido</th>
       <th>Institución</th>
@@ -13,11 +12,10 @@
 
   <tbody>
     <tr>
-      <td><%= @client.rut %></td>
-      <td><%= @client.dv %></td>
+      <td><%= number_to_currency(@client.rut, {:precision => 0, :unit => "",:delimiter => "."}) %>-<%= @client.dv %></td>
       <td><%= @client.name %></td>
       <td><%= @client.last_name %></td>
-      <td><%= @client.institution_id %></td>
+      <td><%= @client.institution.business_name %></td>
     </tr>
   </tbody>
 </table>

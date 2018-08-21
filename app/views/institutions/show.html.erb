@@ -3,14 +3,12 @@
   <thead>
   	<tr>
   		<th>Rut</th>
-  		<th>Dv</th>
   		<th>Institución</th>
   	</tr>
   </thead>
   <tbody>
   	<tr>
-  		<td><%= @institution.rut %></td>
-  		<td><%= @institution.dv %></td>
+  		 <td><%= number_to_currency(@institution.rut, {:precision => 0, :unit => "",:delimiter => "."}) %>-<%= @institution.dv %></td>
   		<td><%= @institution.business_name %></td>
   	</tr>
   </tbody>
