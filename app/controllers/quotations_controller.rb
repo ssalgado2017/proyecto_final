@@ -14,7 +14,7 @@ class QuotationsController < InheritedResources::Base
 
   def new
     @quotation = Quotation.new
-    @states = State.all
+    @states = State.all 
     @clients = current_user.clients
     @user = current_user
   end
@@ -29,7 +29,8 @@ class QuotationsController < InheritedResources::Base
 
  def create
   @states = State.all
-  @quotation = Quotation.new(quotation_params)	
+  @quotation = Quotation.new(quotation_params)
+  @quotation.date_create = Time.now
   @quotation.user = current_user
 #  @quotation.client = current_user.clients
 
@@ -61,6 +62,7 @@ class QuotationsController < InheritedResources::Base
     end
   end
 
+
   # DELETE /quotes/1
   # DELETE /quotes/1.json
   def destroy
@@ -79,7 +81,7 @@ class QuotationsController < InheritedResources::Base
     end
     
     def quotation_params
-      params.require(:quotation).permit(:code_quotation, :title, :description, :state_id, :user_id, :client_id, :document)
+      params.require(:quotation).permit(:code_quotation, :title, :description, :state_id, :user_id, :client_id, :document, :date_create)
     end
 end
 

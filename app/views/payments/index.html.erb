@@ -22,7 +22,7 @@
         <td><%= payment.coin %></td>
         <td><%= payment.rode %></td>
         <td><%= payment.iva %></td>
-        <td><%= payment.quotation_id %></td>
+        <td><%= payment.quotation.code_quotation %></td>
         <td><button type="button" class="btn btn-success"><%= link_to 'Mostrar', payment %></button>
         <button type="button" class="btn btn-warning"><%= link_to 'Editar', edit_payment_path(payment) %></button>
         <button type="button" class="btn btn-danger"><%= link_to 'Eliminar', payment, method: :delete, data: { confirm: 'Está seguro(a) que quiere eliminarlo?' } %></button></td>

@@ -1,0 +1,6 @@
+<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+<% my_chart = Quotation.created_last_week %>
+
+<%= bar_chart my_chart %>
+
+

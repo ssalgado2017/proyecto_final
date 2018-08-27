@@ -15,12 +15,13 @@
       <td><%= @quotation.title %></td>
       <td><%= @quotation.state.name %></td>
       <td><%= @quotation.client.fullname %></td>
-      <td><A HREF="<%= @quotation.document%>"><IMG NAME="mostrar" SRC="assets/images/documents.png%>"</A>Mostrar</td>
+      <td><A HREF="<%= @quotation.document%>"><IMG NAME="mostrar" SRC="../assets/images/documents.png"%></A>Mostrar</td>
 
     </tr>
   </tbody>
  </table>
  </div>
 
+<%= link_to "Pagos", payments_path %> |
 <%= link_to 'Editar', edit_quotation_path(@quotation) %> |
 <%= link_to 'Volver', quotations_path %>
